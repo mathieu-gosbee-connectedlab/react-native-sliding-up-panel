@@ -25,6 +25,7 @@ var SlidingUpPanel = React.createClass({
   getInitialState: function() {
     return {
       handlerHeight : this.props.handlerHeight,
+      containerStyle: this.props.containerStyle,
       containerHeight : this.props.containerHeight,
       containerMinimumHeight : this.props.handlerHeight,
       containerMaximumHeight : this.props.containerMaximumHeight,
@@ -131,14 +132,14 @@ var SlidingUpPanel = React.createClass({
   render: function() {
     return (
       <View
-        style = {{
+        style = {[{
           position: 'absolute',
           bottom: 0,
           opacity: this.state.containerOpacity,
           height: this.state.containerHeight,
           paddingBottom: this.state.leastContainerHeight,
           backgroundColor : this.state.containerBackgroundColor
-        }}>
+        }, this.props.containerStyle]}>
         <View
           style = {{
             height : this.state.handlerHeight,
